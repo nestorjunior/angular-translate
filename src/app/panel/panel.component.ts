@@ -7,16 +7,17 @@ import { PHRASES } from './phrase-mock'
 	templateUrl: './panel.component.html',
 	styleUrls: ['./panel.component.css']
 })
+
 export class PanelComponent implements OnInit {
 
 	public frases: Phrase[] = PHRASES
-	public resposta: string
+	public resposta: string = ''
 	public rodada: number = 0
 	public rodadaFrase: Phrase
 	public progress: number = 0
 
 	constructor() {
-		this.rodadaFrase = this.frases[this.rodada]
+		this.atualizaRodada()
 	}
 
 	ngOnInit() {
@@ -29,6 +30,8 @@ export class PanelComponent implements OnInit {
 	public verificarResposta(): void {
 		if(this.resposta == this.rodadaFrase.phrasePtBr){
 			
+			alert('Resposta correta!')
+
 			//Trocar pergunta da rodada
 			this.rodada++
 
@@ -38,8 +41,19 @@ export class PanelComponent implements OnInit {
 
 			//Comparar a frase digitada com o valor tradução do objeto
 			this.rodadaFrase = this.frases[this.rodada]	
-		}else{
-			alert('Tá errado, ô tonto!!! A primeira letra é em maiúscula.')
+
+		}
+		else{
+			alert('Tá errado, ô tonto!!! A primeira letra é maiúscula.')
 		}
 	}
+
+	public atualizaRodada(): void {
+		//Define a frase da rodada
+		this.rodadaFrase = this.frases[this.rodada]
+
+		//Limpar o campo resposta: text-area
+		this.resposta = ''
+	}
+
 }

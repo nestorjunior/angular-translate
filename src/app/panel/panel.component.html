@@ -5,15 +5,15 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="card border-primary mb-6">
-                  <div class="card-header">Header</div>
+                  <div class="card-header">Progress</div>
                   <div class="card-body text-primary">
-                    <app-progress></app-progress>
+                    <app-progress [progress]="progress"></app-progress>
                   </div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="card border-primary mb-6">
-                  <div class="card-header">Header</div>
+                  <div class="card-header">Chances</div>
                   <div class="card-body text-primary">
                     <app-attempts></app-attempts>
                   </div>
@@ -30,7 +30,7 @@
                     <h4 class="card-title">{{ rodadaFrase.phraseEng }}</h4>
                     <fieldset>
                         <div class="form-group">
-                          <textarea class="form-control" rows="3" (input)="atualizaResposta($event)"></textarea>
+                          <textarea class="form-control" rows="3" (input)="atualizaResposta($event)" [value]="resposta"></textarea>
                         </div>
                          <button type="submit" class="btn btn-lg btn-primary pull-right" (click)="verificarResposta()">Verificar</button>
                     </fieldset>

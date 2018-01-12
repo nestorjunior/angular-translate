@@ -1,5 +1,1 @@
-<img [src]="emptyHeart" alt="">
-<img [src]="emptyHeart" alt="">
-<img [src]="emptyHeart" alt="">
-
-
+<img *ngFor="let item of coracoes" [src]="item.showHeart()">
