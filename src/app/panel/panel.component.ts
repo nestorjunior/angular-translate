@@ -13,10 +13,10 @@ export class PanelComponent implements OnInit {
 	public resposta: string
 	public rodada: number = 0
 	public rodadaFrase: Phrase
+	public progress: number = 0
 
 	constructor() {
 		this.rodadaFrase = this.frases[this.rodada]
-		console.log(this.rodadaFrase)
 	}
 
 	ngOnInit() {
@@ -27,10 +27,19 @@ export class PanelComponent implements OnInit {
 	}
 
 	public verificarResposta(): void {
-		if(this.resposta == this.frases[0].phraseEng){
-			console.log('Resposta igual...')
+		if(this.resposta == this.rodadaFrase.phrasePtBr){
+			
+			//Trocar pergunta da rodada
+			this.rodada++
+
+			//Atualiza o progresso
+			this.progress = this.progress + (100 / this.frases.length)
+			console.log(this.progress)
+
+			//Comparar a frase digitada com o valor tradução do objeto
+			this.rodadaFrase = this.frases[this.rodada]	
 		}else{
-			console.log('Resposta diferente, gajo!')
+			alert('Tá errado, ô tonto!!! A primeira letra é em maiúscula.')
 		}
 	}
 }
