@@ -27,12 +27,12 @@
                 <div class="card border-primary mb-12">
                   <div class="card-header">Traduza a frase:</div>
                   <div class="card-body text-primary">
-                    <h4 class="card-title">How are you?</h4>
+                    <h4 class="card-title">{{ rodadaFrase.phraseEng }}</h4>
                     <fieldset>
                         <div class="form-group">
-                          <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                          <textarea class="form-control" rows="3" (input)="atualizaResposta($event)"></textarea>
                         </div>
-                         <button type="submit" class="btn btn-lg btn-primary pull-right">Verificar</button>
+                         <button type="submit" class="btn btn-lg btn-primary pull-right" (click)="verificarResposta()">Verificar</button>
                     </fieldset>
                   </div>
                 </div>
