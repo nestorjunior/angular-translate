@@ -2,8 +2,8 @@ export class Heart {
 	
 	constructor(
 		public full: boolean,
-		public urlFullHeart: string = '/assets/heart_full.png',
-		public urlEmptyHeart: string = '/assets/heart_empty.png'
+		public urlFullHeart: string = 'https://nestorjunior.github.io/assets/heart_full.png',
+		public urlEmptyHeart: string = 'https://nestorjunior.github.io/assets/heart_empty.png'
 	) { }
 
 	public showHeart(): string {
